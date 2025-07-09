@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CampusLoop
+
+CampusLoop is a web application designed to streamline campus management and enhance communication across educational institutions. Built with JavaScript and CSS, CampusLoop provides an intuitive interface for students, faculty, and administrators to collaborate, share information, and manage daily campus activities efficiently.
+
+## Features (in progress..)
+
+- **User Management:** Register and manage profiles for students, teachers, and staff.
+- **Event Calendar:** Organize and display campus events, deadlines, and schedules.
+- **Announcements:** Centralized platform for important news and notifications.
+- **Resource Sharing:** Upload and access study materials and campus documents.
+- **Interactive Dashboard:** Customizable dashboard with key metrics and quick links.
+- **Responsive Design:** Fully responsive layout compatible with desktops, tablets, and smartphones.
+- **Google Firebase Integration:** Authentication, database, and hosting powered by Firebase.
+- **Cloud Console:** Management and monitoring via Google Cloud Console.
+- **Gemini API Integration:** Advanced AI and language features using Gemini API.
+
+## Technologies Used
+
+- **JavaScript:** Core application logic and interactivity.
+- **CSS:** Styling and responsive design.
+- **Google Firebase:** Authentication, Firestore database, and hosting.
+- **Google Cloud Console:** Project, service, and resource management.
+- **Gemini API:** Enhanced AI-powered features and language processing.
+- (Add frameworks/libraries such as React, Node.js, Bootstrap if used.)
 
 ## Getting Started
 
-First, run the development server:
+To run CampusLoop locally:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Manika2626/campusloop.git
+   cd campusloop
+   ```
+
+2. **Install dependencies:**
+   (If using Node.js/npm or another package manager, specify the steps here.)
+   ```bash
+   npm install
+   ```
+
+3. **Firebase Setup:**
+   - Create a project in [Google Firebase Console](https://console.firebase.google.com/).
+   - Add a web app to your Firebase project.
+   - Copy your Firebase config and replace the placeholder in your project (usually in `src/firebase.js` or similar).
+   - Enable Authentication and Firestore as needed.
+
+4. **Gemini API Setup:**
+   - Obtain Gemini API credentials from [Google AI Studio](https://aistudio.google.com/app/apikey).
+   - Add your Gemini API key to your environment variables or configuration file as needed.
+
+5. **Start the application:**
+   ```bash
+   npm start
+   ```
+   (Or specify the correct command for your setup.)
+
+6. **Access the app:**
+   Open your browser and navigate to `http://localhost:3000` (or the specified port).
+
+## Folder Structure
+
+```
+campusloop/
+├── public/
+├── src/
+│   ├── components/
+│   ├── assets/
+│   ├── styles/
+│   └── firebase.js
+├── package.json
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- `public/`: Static files and public assets.
+- `src/`: Source code, components, and stylesheets.
+- `src/firebase.js`: Firebase configuration and initialization.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Contribution
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Contributions are welcome! Please fork the repository, make your changes, and submit a pull request. For major changes, open an issue first to discuss your ideas.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Developed by Manika Singh**
