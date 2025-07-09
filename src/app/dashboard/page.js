@@ -94,8 +94,12 @@ export default function DashboardPage() {
                 <p><strong>{a.authorName}</strong></p>
                 <p className={styles.desc}>{a.description}</p>
                 <h3>{a.title}</h3>
-                {a.fileType === "image" ? (
-                  <img src={a.fileURL} alt="announcement" width="300" />
+                <img
+          src={a.fileURL}
+          alt="announcement"
+          width="300"
+          className={styles.image}
+        />
                 ) : (
                   <a href={a.fileURL} target="_blank" rel="noopener noreferrer">📄 View PDF</a>
                 )}
