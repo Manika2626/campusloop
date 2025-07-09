@@ -94,7 +94,8 @@ export default function DashboardPage() {
                 <p><strong>{a.authorName}</strong></p>
                 <p className={styles.desc}>{a.description}</p>
                 <h3>{a.title}</h3>
-                <img
+                {a.fileType === "image" ? (
+        <img
           src={a.fileURL}
           alt="announcement"
           width="300"
