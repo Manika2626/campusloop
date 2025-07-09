@@ -124,7 +124,6 @@
   background: #0059c1;
 }
 
-/* Optional: scrollbar style */
 .messages::-webkit-scrollbar {
   width: 6px;
 }
