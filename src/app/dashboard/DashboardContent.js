@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> e8d1078dc9f0046b8bd11a6599b015d895e0f635
 'use client';
 
 import { useEffect, useState } from "react";
