@@ -103,6 +103,7 @@ transition: background 0.2s ease,color 0.2s ease,box-shadow 0.2s ease
     background: linear-gradient(135deg, #0a284c, #6eaefd);
   }
   .navbar {
+  width:100%;    
   background: #1976d2;
   color: #fff;
   padding: 1rem 2rem;
@@ -123,6 +124,7 @@ transition: background 0.2s ease,color 0.2s ease,box-shadow 0.2s ease
 }
 
 .footer {
+  width:100%;  
   margin-top: 2rem;
   text-align: center;
   font-size: 0.9rem;
