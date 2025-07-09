@@ -5,6 +5,7 @@ import styles from "./Chatbot.module.css";
 
 export default function Chatbot() {
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([
     {
       from: "bot",
@@ -21,10 +22,11 @@ export default function Chatbot() {
     const userMessage = { from: "user", text: input };
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
+    setLoading(true);
 
     try {
       const res = await fetch(
-        "https://chatbot-webhook-omega.vercel.app/api/webhook",
+        "https://chatbot-gemini-two.vercel.app/api/webhook",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -54,12 +56,31 @@ export default function Chatbot() {
         text: "⚠️ Sorry, there was an error contacting the server.",
       };
       setMessages((prev) => [...prev, botMessage]);
+    } finally {
+      setLoading(false);
     }
+  };
+
+  const renderBotMessage = (text) => {
+    return text.split("\n").map((line, idx) => {
+      const linkMatch = line.match(/\[(.*?)\]\((.*?)\)/);
+      if (linkMatch) {
+        const [, label, href] = linkMatch;
+        return (
+          <p key={idx}>
+            <a href={href} target="_blank" rel="noopener noreferrer">
+              {label}
+            </a>
+          </p>
+        );
+      }
+      return <p key={idx} style={{ margin: "2px 0" }}>{line}</p>;
+    });
   };
 
   return (
     <>
-      <div className={styles.chatButton} onClick={toggleChat}>
+      <div className={styles.chatButton} onClick={toggleChat} aria-label="Open Chatbot">
         💬
       </div>
 
@@ -73,17 +94,14 @@ export default function Chatbot() {
                 key={i}
                 className={m.from === "bot" ? styles.bot : styles.user}
               >
-                {m.from === "bot" ? (
-                  m.text.split("\n").map((line, idx) => (
-                    <p key={idx} style={{ margin: "2px 0" }}>
-                      {line}
-                    </p>
-                  ))
-                ) : (
-                  <p>{m.text}</p>
-                )}
+                {m.from === "bot" ? renderBotMessage(m.text) : <p>{m.text}</p>}
               </div>
             ))}
+            {loading && (
+              <div className={styles.bot}>
+                <p>⏳ Thinking…</p>
+              </div>
+            )}
           </div>
 
           <div className={styles.inputArea}>
@@ -93,8 +111,11 @@ export default function Chatbot() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type your message…"
               onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+              aria-label="Chat input"
             />
-            <button onClick={sendMessage}>Send</button>
+            <button onClick={sendMessage} disabled={loading}>
+              Send
+            </button>
           </div>
         </div>
       )}
