@@ -17,14 +17,12 @@ export default function UploadPage() {
     if (!file) return alert("Please select a file");
 
     try {
-      // Upload to Firebase Storage
       const storageRef = ref(storage, `announcements/${Date.now()}_${file.name}`);
       await uploadBytes(storageRef, file);
       const fileURL = await getDownloadURL(storageRef);
 
       const fileType = file.type.includes("image") ? "image" : "pdf";
 
-      // Save metadata to Firestore
       await addDoc(collection(db, "announcements"), {
         title,
         description,
@@ -48,32 +46,63 @@ export default function UploadPage() {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-      <h1 className={styles.heading}>Upload Announcement</h1>
-      <div >
-        <input className={styles.announcementInput} placeholder="Announcement Title" value={title} onChange={e => setTitle(e.target.value)} /><br />
-      </div>
-      <div>
-        <textarea className={styles.announcementText} placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} /><br />
-      </div>
-      <div>
-        <input className={styles.announcementInput} placeholder="Club or Teacher Name" value={authorName} onChange={e => setAuthorName(e.target.value)} /><br />
-      </div>
-      <div>
-        <select className={styles.announcementInput} value={type} onChange={e => setType(e.target.value)}>
+        <h1 className={styles.heading}>Upload Announcement</h1>
+
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Announcement Title</label>
+          <input
+            className={styles.input}
+            placeholder="Enter the title"
+            value={title}
+            onChange={e => setTitle(e.target.value)}
+          />
+        </div>
+
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Description</label>
+          <textarea
+            className={styles.textarea}
+            placeholder="Write the description"
+            value={description}
+            onChange={e => setDescription(e.target.value)}
+          />
+        </div>
+
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Club or Teacher Name</label>
+          <input
+            className={styles.input}
+            placeholder="Author Name"
+            value={authorName}
+            onChange={e => setAuthorName(e.target.value)}
+          />
+        </div>
+
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Type</label>
+          <select
+            className={styles.select}
+            value={type}
+            onChange={e => setType(e.target.value)}
+          >
             <option value="club">Club</option>
             <option value="teacher">Teacher</option>
-        </select><br />
+          </select>
+        </div>
+
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Upload File</label>
+          <input
+            className={styles.fileInput}
+            type="file"
+            onChange={e => setFile(e.target.files[0])}
+          />
+        </div>
+
+        <button className={styles.mainBtn} onClick={handleUpload}>
+          Add Announcement
+        </button>
       </div>
-      <div>
-        <input className={styles.announcementInput} type="file" onChange={e => setFile(e.target.files[0])} /><br />
-      </div>
-      <div>
-        <button className={styles.mainBtn} onClick={handleUpload}>Add Announcement</button>
-      </div>
-    </div>
     </div>
   );
 }
-
-
-
