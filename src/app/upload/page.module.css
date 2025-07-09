@@ -1,14 +1,5 @@
 /* page.module.css */
 
-:root {
-  --primary-color: #2563eb;
-  --background-color: #f3f4f6;
-  --card-background: #ffffff;
-  --input-background: #f9fafb;
-  --border-color: #d1d5db;
-  --shadow-color: rgba(0, 0, 0, 0.1);
-}
-
 body {
   font-family: Arial, sans-serif;
 }
@@ -17,14 +8,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--background-color);
+  background-color: #c3def0;
   min-height: 100vh;
   padding: 20px;
 }
 
 .card {
-  background-color: var(--card-background);
-  box-shadow: 0 4px 12px var(--shadow-color);
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   padding: 32px;
   max-width: 500px;
@@ -43,8 +34,8 @@ body {
 .heading {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
+  color: #2563eb;
+  border-bottom: 2px solid #2563eb;
   padding-bottom: 8px;
 }
 
@@ -65,17 +56,18 @@ body {
 .select,
 .fileInput {
   padding: 12px;
-  border: 1px solid var(--border-color);
+  border: 1px solid #d1d5db;
   border-radius: 8px;
-  background-color: var(--input-background);
+  background-color: #f9fafb;
   font-size: 1rem;
   transition: border-color 0.3s ease;
+  color: #374151;
 }
 
 .input:focus,
 .textarea:focus,
 .select:focus {
-  border-color: var(--primary-color);
+  border-color: #2563eb;
   outline: none;
 }
 
@@ -86,7 +78,7 @@ body {
 
 .mainBtn {
   padding: 12px;
-  background-color: var(--primary-color);
+  background-color: #2563eb;
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -98,4 +90,12 @@ body {
 
 .mainBtn:hover {
   background-color: #1e40af;
+}
+
+.select {
+  color: #374151;
+}
+
+.fileInput {
+  color: #374151;
 }
