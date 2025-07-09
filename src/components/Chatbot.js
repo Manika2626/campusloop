@@ -9,7 +9,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState([
     {
       from: "bot",
-      text: "Hi! 👋 Ask me anything about announcements — club or teacher.",
+      text: "Hi! 👋 Ask me anything..",
     },
   ]);
   const [input, setInput] = useState("");

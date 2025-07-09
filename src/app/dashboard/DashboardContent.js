@@ -63,9 +63,13 @@ export default function DashboardContent() {
   return (
     <>
       <div className={styles.navbar}>
-        <div className={styles.logo}>🌐 Campus Loop</div>
-        <button className={styles.logoutBtn} onClick={handleLogout}>Logout</button>
+        <div>
+          <div className={styles.logo}>🌐 Campus Loop</div>
+          <div className={styles.tagline}>One app. Every announcement. Zero missed opportunities.</div>
+        </div>
+          <button className={styles.logoutBtn} onClick={handleLogout}>Logout</button>
       </div>
+
 
       <div className={styles.DashboardPage}>
         <div className={styles.container}>

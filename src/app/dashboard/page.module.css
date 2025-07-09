@@ -190,3 +190,23 @@ transition: background 0.2s ease,color 0.2s ease,box-shadow 0.2s ease
     object-fit: cover;
     border-radius: 10px;
   }
+  .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0070f3;
+  color: white;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.tagline {
+  font-size: 0.85rem;
+  color: #e0e0e0;
+  margin-top: 2px;
+}
